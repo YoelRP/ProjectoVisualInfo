@@ -4,7 +4,7 @@ import json
 with urlopen(
     # "https://raw.githubusercontent.com/plotly/datasets/master/geojson-counties-fips.json"
     # "https://raw.githubusercontent.com/YoelRP/ProjectoVisualInfo/main/geojson/original.json"
-    "https://raw.githubusercontent.com/YoelRP/ProjectoVisualInfo/main/geojson/Text2.json"
+    "https://raw.githubusercontent.com/YoelRP/ProjectoVisualInfo/main/geojson/Text3.json"
 ) as response:
     counties = json.load(response)
 
