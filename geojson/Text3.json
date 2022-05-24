@@ -6572,7 +6572,7 @@
                 ,
                 "type": "MultiPolygon"
             },
-            "id": "01001",
+            "id": "Huetar_norte",
             "properties": {
                 "CENSUSAREA": 594.436,
                 "COUNTY": "001",
@@ -14225,7 +14225,7 @@
                    
                 "type": "MultiPolygon"
             },
-            "id": "01009",
+            "id": "Huetar_Atlantico",
             "properties": {
                 "CENSUSAREA": 644.776,
                 "COUNTY": "009",
@@ -32931,7 +32931,7 @@
                    
                 "type": "MultiPolygon"
             },
-            "id": "01017",
+            "id": "Chorotega",
             "properties": {
                 "CENSUSAREA": 596.531,
                 "COUNTY": "017",
@@ -45317,7 +45317,7 @@
                    
                 "type": "MultiPolygon"
             },
-            "id": "01021",
+            "id": "Brunca",
             "properties": {
                 "CENSUSAREA": 692.854,
                 "COUNTY": "021",
@@ -55872,7 +55872,7 @@
                    
                 "type": "MultiPolygon"
             },
-            "id": "01033",
+            "id": "Central",
             "properties": {
                 "CENSUSAREA": 592.619,
                 "COUNTY": "033",
@@ -81456,7 +81456,7 @@
                    
                 "type": "MultiPolygon"
             },
-            "id": "01045",
+            "id": "Pacifico_Central",
             "properties": {
                 "CENSUSAREA": 561.15,
                 "COUNTY": "045",
