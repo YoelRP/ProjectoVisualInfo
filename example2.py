@@ -1,21 +1,25 @@
 from urllib.request import urlopen
 import json
+
+with urlopen(
+    # "https://raw.githubusercontent.com/plotly/datasets/master/geojson-counties-fips.json"
+    # "https://raw.githubusercontent.com/YoelRP/ProjectoVisualInfo/main/geojson/original.json"
+    "https://raw.githubusercontent.com/YoelRP/ProjectoVisualInfo/main/geojson/Text.json"
+) as response:
+    counties = json.load(response)
+
 import pandas as pd
-import plotly.express as px
-
-response = open("D:\TEC\infoVis\Projecto\ProjectoVisualInfo\geojson\original.json")
-counties = json.load(response)
-
 
 df = pd.read_csv(
     "https://raw.githubusercontent.com/plotly/datasets/master/fips-unemp-16.csv",
     dtype={"fips": str},
 )
 
+import plotly.express as px
+
 fig = px.choropleth_mapbox(
     df,
     geojson=counties,
-    featureidkey="name",
     locations="fips",
     color="unemp",
     color_continuous_scale="Viridis",
