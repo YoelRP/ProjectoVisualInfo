@@ -1,7 +1,7 @@
-fips,unemp
-Huetar_norte,5.3
-Huetar_Atlantico,5.5
-Chorotega,5.5
-Brunca,5.6
-Central,7.0
-Pacifico_Central,5.9
+fips,2000,2001
+Huetar_norte,5.3,9
+Huetar_Atlantico,5.5,2
+Chorotega,5.5,1.2
+Brunca,5.6,8
+Central,7.0,7
+Pacifico_Central,5.9,4

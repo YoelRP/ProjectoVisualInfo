@@ -2,8 +2,6 @@ from urllib.request import urlopen
 import json
 
 with urlopen(
-    # "https://raw.githubusercontent.com/plotly/datasets/master/geojson-counties-fips.json"
-    # "https://raw.githubusercontent.com/YoelRP/ProjectoVisualInfo/main/geojson/original.json"
     "https://raw.githubusercontent.com/YoelRP/ProjectoVisualInfo/main/geojson/Text3.json"
 ) as response:
     counties = json.load(response)
@@ -21,12 +19,12 @@ fig = px.choropleth_mapbox(
     df,
     geojson=counties,
     locations="fips",
-    color="unemp",
+    color="2000",
     color_continuous_scale="Viridis",
     range_color=(0, 12),
     mapbox_style="carto-positron",
-    zoom=3,
-    center={"lat": 37.0902, "lon": -95.7129},
+    zoom=8,
+    center={"lat": 9.9281, "lon": -84.0907},
     opacity=0.5,
     labels={"unemp": "unemployment rate"},
 )
