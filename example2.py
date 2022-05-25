@@ -1,12 +1,14 @@
 from urllib.request import urlopen
 import json
+import pandas as pd
+
 
 with urlopen(
     "https://raw.githubusercontent.com/YoelRP/ProjectoVisualInfo/main/geojson/Text3.json"
 ) as response:
     counties = json.load(response)
 
-import pandas as pd
+
 
 df = pd.read_csv(
     "https://raw.githubusercontent.com/YoelRP/ProjectoVisualInfo/main/fips.csv",
@@ -19,7 +21,7 @@ fig = px.choropleth_mapbox(
     df,
     geojson=counties,
     locations="fips",
-    color="2000",
+    color="2001",
     color_continuous_scale="Viridis",
     range_color=(0, 12),
     mapbox_style="carto-positron",
