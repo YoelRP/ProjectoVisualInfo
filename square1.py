@@ -15,7 +15,7 @@ def square(side):
 )
     fig.update_layout(
                 showlegend=False,
-                plot_bgcolor = '#FFFFFF',
+                plot_bgcolor = '#00FFFF',
                 width=150,
                 height=150,
                 yaxis=dict(range=[-10, 10]),

@@ -54,32 +54,23 @@ figSquare6 = square(4)
 app = Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
 
 # Incorporate data into App
-df = px.data.gapminder()
-#df = pd.read_csv("finalrecycling.csv")
-print(df.head())
+#df = px.data.gapminder()
+df = pd.read_csv("./SCATERRPLOTV5.csv")
+print(df)
 
 
 
 # Build the scatter plot
-fig = px.scatter(data_frame=df, x="gdpPercap", y="lifeExp", size="pop",
-                 color="continent", hover_name="country", log_x=True,
-                 size_max=60, range_y=[30, 90], animation_frame='year')
-
+fig = px.scatter(data_frame=df, x="Region", y="Cantidad_de_presonas", size="ABSCANT",
+                 color="Tipo",
+                 size_max=60, range_y=[-8850, 60940], animation_frame='Año')
+#,range_x=[-1, 7]
 # Build the layout to define what will be displayed on the page
-app.layout = dbc.Container([
-    dbc.Row([
-        dbc.Col([
-            html.H1("Life Expectancy vs. GDP", style={'textAlign': 'center'})
-        ])
+app.layout =html.Div([
+    dbc.Row([            html.H1("Life Expectancy vs. GDP", style={'textAlign': 'center'})
+       
     ]),
-   # dbc.Row([
-        # dbc.Col([
-        #     dcc.Graph(id='our-figMap', figure=figMap)
-        # ], width=6),
-        # dbc.Col([
-        #     dcc.Graph(id='our-figMap', figure=figMap)
-        # ], width=12)
-   # ]),
+
     dbc.Row([
         dbc.Col([
             dcc.Graph(id='our-figMap', figure=figMap)
@@ -167,8 +158,17 @@ app.layout = dbc.Container([
 
     dbc.Row([
         dbc.Col([
-            dcc.Graph(id='our-plot', figure=fig)
-        ])
+            dcc.Graph(id='Bubbles', figure=fig)
+        ]),
+        dcc.Slider(
+        df['Año'].min(),
+        df['Año'].max(),
+        step=None,
+        id='Año--slider',
+        value=df['Año'].max(),
+        marks={str(year): str(year) for year in df['Año'].unique()},
+
+    )
     ])
 ],
     style={"height": "200vh"},
