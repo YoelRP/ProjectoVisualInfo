@@ -7,6 +7,8 @@ import json
 import pandas as pd
 from square1 import square 
 
+
+#datos geograficos socioeconomicos de Costa Rica  de costa Rica 
 with urlopen(
     "https://raw.githubusercontent.com/YoelRP/ProjectoVisualInfo/main/geojson/Text3.json"
 ) as response:
@@ -14,11 +16,13 @@ with urlopen(
 
 
 
+#abre los valores que salen del INEC
 df = pd.read_csv(
     "https://raw.githubusercontent.com/YoelRP/ProjectoVisualInfo/main/fips.csv",
     dtype={"fips": str},
 )
 
+#crea la figura del mapa 
 figMap = px.choropleth_mapbox(
     df,
     geojson=counties,
@@ -51,6 +55,7 @@ app = Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
 
 # Incorporate data into App
 df = px.data.gapminder()
+#df = pd.read_csv("finalrecycling.csv")
 print(df.head())
 
 
