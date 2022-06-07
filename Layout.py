@@ -225,7 +225,7 @@ def create_fig_map(año):
         "https://raw.githubusercontent.com/YoelRP/ProjectoVisualInfo/main/fips.csv",
         dtype={"fips": str},
     )
-
+    print(df)
     #crea la figura del mapa 
     figMap = px.choropleth_mapbox(
         df,
@@ -233,13 +233,14 @@ def create_fig_map(año):
         locations="fips",
         color=str(año),
         color_continuous_scale="Viridis",
-        range_color=(0, 12),
+        range_color=(0, 70000),
         mapbox_style="carto-positron",
         zoom=6,
         center={"lat": 9.9281, "lon": -84.0907},
         opacity=0.5,
         labels={"unemp": "unemployment rate"},
     )
+    return figMap
 
 # Run the App
 if __name__ == '__main__':

@@ -6572,7 +6572,7 @@
                 ,
                 "type": "MultiPolygon"
             },
-            "id": "Huetar_norte",
+            "id": "Huetar Norte",
             "properties": {
                 "CENSUSAREA": 594.436,
                 "COUNTY": "001",
@@ -14225,7 +14225,7 @@
                    
                 "type": "MultiPolygon"
             },
-            "id": "Huetar_Atlantico",
+            "id": "Huetar Caribe",
             "properties": {
                 "CENSUSAREA": 644.776,
                 "COUNTY": "009",
@@ -81456,7 +81456,7 @@
                    
                 "type": "MultiPolygon"
             },
-            "id": "Pacifico_Central",
+            "id": "Pacifico Central",
             "properties": {
                 "CENSUSAREA": 561.15,
                 "COUNTY": "045",
