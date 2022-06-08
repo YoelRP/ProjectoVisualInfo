@@ -1,18 +1,34 @@
 import plotly.graph_objects as go
 
 
-def square(side):
-    fig = go.Figure(go.Scatter())
-    fig.add_shape(type="rect",
-    xref="x", yref="y",
-    x0=-side/2, y0=-side/2,
-    x1=side/2, y1=side/2,
-    line=dict(
-        color="RoyalBlue",
-        width=3,
-    ),
-    fillcolor="LightSkyBlue",
-)
+def square(side,color="LightSkyBlue"):
+    if side >= 0 :
+
+        fig = go.Figure(go.Scatter())
+        fig.add_shape(type="rect",
+        xref="x", yref="y",
+        x0=-side/2, y0=-side/2,
+        x1=side/2, y1=side/2,
+        line=dict(
+            color="RoyalBlue",
+            width=5,
+        ),
+        fillcolor=color,
+        )
+    if side < 0 :
+        side = abs(side)  
+        fig = go.Figure(go.Scatter())
+        fig.add_shape(type="rect",
+        xref="x", yref="y",
+        x0=-side/2, y0=-side/2,
+        x1=side/2, y1=side/2,
+        line=dict(
+            color="RoyalBlue",
+            width=5,
+        )
+        )
+    
+    
     fig.update_layout(
                 showlegend=False,
                 plot_bgcolor = '#00FFFF',

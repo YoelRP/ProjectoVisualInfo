@@ -146,4 +146,4 @@ def display_click_data(clickData):
             return html.A(the_link, href=the_link, target="_blank")
 # #--------------------------------------------------------------
 if __name__ == '__main__':
-    app.run_server(debug=False)
+    app.run_server(debug=True)
