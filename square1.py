@@ -1,7 +1,7 @@
 import plotly.graph_objects as go
 
 
-def square(side,color="LightSkyBlue"):
+def square(side,colorName="LightSkyBlue"):
     if side >= 0 :
 
         fig = go.Figure(go.Scatter())
@@ -10,10 +10,10 @@ def square(side,color="LightSkyBlue"):
         x0=-side/2, y0=-side/2,
         x1=side/2, y1=side/2,
         line=dict(
-            color="RoyalBlue",
+            color=colorName,
             width=5,
         ),
-        fillcolor=color,
+        fillcolor=colorName,
         )
     if side < 0 :
         side = abs(side)  
@@ -23,7 +23,7 @@ def square(side,color="LightSkyBlue"):
         x0=-side/2, y0=-side/2,
         x1=side/2, y1=side/2,
         line=dict(
-            color="RoyalBlue",
+            color=colorName,
             width=5,
         )
         )
@@ -31,7 +31,7 @@ def square(side,color="LightSkyBlue"):
     
     fig.update_layout(
                 showlegend=False,
-                plot_bgcolor = '#00FFFF',
+                plot_bgcolor = '#FFFFFF',
                 width=150,
                 height=150,
                 yaxis=dict(range=[-10, 10]),

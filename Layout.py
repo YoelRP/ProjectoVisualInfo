@@ -38,107 +38,115 @@ app = Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
 #df = px.data.gapminder()
 
 app.layout =html.Div([
-    dbc.Row([            html.H1("Life Expectancy vs. GDP", style={'textAlign': 'center'})
+    dbc.Row([            html.H1("Componentes de cambio poblacional por región", style={'textAlign': 'center'})
        
     ]),
     
     dbc.Row([
         dbc.Col([
-            dcc.Graph(id='ID-figMap')
+            dcc.Graph(id='ID-figMap',style={'width': '100vh', 'height': '50vh'})
         ]),
         dcc.Store(id='CountClicks-value'),
         dbc.Col([
             dbc.Row([
-                html.H2("Natural  International Domestic   Cambio ", style={'textAlign': 'center'}),
+                dbc.Col([html.H2("Region")]),
+                dbc.Col([html.H2("Natural", style={'position':'relative','left':'-90px', 'textAlign': 'initial','margin-left':'0px'})]),
+                dbc.Col([html.H2("MIG.International", style={'position':'relative','left':'-80px','textAlign': 'left'})]),
+                dbc.Col([html.H2("MIG.Domestic", style={'textAlign': 'left'})]),
+                dbc.Col([html.H2("        Red Cambio ", style={'position':'relative','left':'100px','textAlign': 'rigth'})]),
+                ],className="g-0"),
+                dbc.Row([
                 dbc.Col([
                         html.Div([
-                            html.Pre(id='click-data1',children =["text"]),
+                            html.H3(id='click-data1',children =["Click el mapa para agregar datos"]),
                         ]),
+                        dcc.Store(id='Select1NormValue'),
                 ]),
                 dcc.Store(id='Select1-value'),
                 dbc.Col([
-                    dcc.Graph(id='figSquareNatural1')
+                    dcc.Graph(id='figSquareNatural1',figure = figSquare2)
                 ]),
                 dbc.Col([
-                    html.Div("+", style={'textAlign': 'center','vertical-align':'text-bottom'})
+                    html.H2("+", style={'vertical-align': 'middle','textAlign': 'center','top': '50%','margin-top':'25px' })
                     ]),
                 dbc.Col([
-                    dcc.Graph(id='figSquareInter1')
+                    dcc.Graph(id='figSquareInter1',figure = figSquare2)
                     ]),
                 dbc.Col([
-                    html.Div("+", style={'textAlign': 'center','vertical-align':'text-bottom',})
+                    html.H2("+", style={'textAlign': 'center','vertical-align':'text-bottom','top': '50%','margin-top':'25px' })
                     ]),
                 dbc.Col([
-                    dcc.Graph(id='figSquareDomestic1')
+                    dcc.Graph(id='figSquareDomestic1',figure = figSquare2)
                     ]),
                 dbc.Col([
-                    html.Div("=", style={'textAlign': 'center'})
+                    html.H2("=", style={'textAlign': 'center'})
                     ]),
                 dbc.Col([
-                    dcc.Graph(id='figSquareNetChange1')
+                    dcc.Graph(id='figSquareNetChange1',figure = figSquare2)
                     ])
                 
                 ],className="g-0"),
             dbc.Row([
                 dbc.Col([
                         html.Div([
-                            html.Pre(id='click-data2',children =["text"]),
+                            html.H3(id='click-data2',children =["Click en el mapa denuevo para comparar"]),
                         ]),
+                        dcc.Store(id='Select2NormValue'),
                 ]),
                 dcc.Store(id='Select2-value'),
                  dbc.Col([
-                    dcc.Graph(id='figSquareNatural2')
+                    dcc.Graph(id='figSquareNatural2',figure = figSquare2)
                 ]),
                 dbc.Col([
-                    html.Div("+", style={'textAlign': 'center','vertical-align':'text-bottom'})
+                    html.H2("+", style={'textAlign': 'center','vertical-align':'text-bottom'})
                     ]),
                 dbc.Col([
-                    dcc.Graph(id='figSquareInter2')
+                    dcc.Graph(id='figSquareInter2',figure = figSquare2)
                     ]),
                 dbc.Col([
-                    html.Div("+", style={'vertical-align':'text-bottom'})
+                    html.H2("+", style={'textAlign': 'center','vertical-align':'text-bottom'})
                     ]),
                 dbc.Col([
-                    dcc.Graph(id='figSquareDomestic2')
+                    dcc.Graph(id='figSquareDomestic2',figure = figSquare2)
                     ]),
                 dbc.Col([
-                    html.Div("=", style={'textAlign': 'center'})
+                    html.H2("=", style={'textAlign': 'center'})
                     ]),
                 dbc.Col([
-                    dcc.Graph(id='figSquareNetChange2')
+                    dcc.Graph(id='figSquareNetChange2',figure = figSquare2)
                     ])
                 
                 ],className="g-0"),
             dbc.Row([
-                 html.Div("Comparacion", style={'textAlign': 'center'})
+                 html.H2("Comparacion", style={'textAlign': 'center'})
                 ]),
             dbc.Row([
                 dbc.Col([
                         html.Div([
-                            html.Pre(id='click-data3',children =["Diferencia"]),
+                            html.H3(id='click-data3',children =["Diferencia"]),
                         ]),
                 ]),
                 
                 dbc.Col([
-                    dcc.Graph(id='figSquare5', figure=figSquare5)
+                    dcc.Graph(id='figSquareNatural3', figure=figSquare2)
                 ]),
                 dbc.Col([
-                    html.Div("+", style={'textAlign': 'center'})
+                    html.H2("+", style={'textAlign': 'center'})
                     ]),
                 dbc.Col([
-                    dcc.Graph(id='figSquare6', figure=figSquare6)
+                    dcc.Graph(id='figSquareInter3', figure=figSquare2)
                     ]),
                 dbc.Col([
-                    html.Div("+", style={'textAlign': 'center','vertical-align':'text-bottom'})
+                    html.H2("+", style={'textAlign': 'center','vertical-align':'text-bottom'})
                     ]),
                 dbc.Col([
-                    dcc.Graph(id='figSquare41', figure=figSquare22)
+                    dcc.Graph(id='figSquareDomestic3', figure=figSquare2)
                     ]),
                 dbc.Col([
-                    html.Div("=", style={'textAlign': 'center'})
+                    html.H2("=", style={'textAlign': 'center'})
                     ]),
                 dbc.Col([
-                    dcc.Graph(id='figSquare42', figure=figSquare23)
+                    dcc.Graph(id='figSquareNetChange3', figure=figSquare2)
                     ])
             ],className="g-0"
                     )
@@ -157,7 +165,7 @@ app.layout =html.Div([
         id='AñoSlider',
         value=df['Año'].max(),
         marks={str(year): str(year) for year in df['Año'].unique()},
-
+        
     )
     ])
 ],
@@ -213,7 +221,7 @@ def create_fig_scatter(año):
     dfAño = df[df['Año'] == año]
     # print(dfAño)
     # Build the scatter plot
-    fig_scatter= px.scatter(data_frame=dfAño, x="Region", y="Cantidad_de_presonas", size="ABSCANT",
+    fig_scatter= px.scatter(data_frame=dfAño, x="Region", y="Cantidad de presonas", size="ABSCANT",
                     color="Tipo",
                     size_max=60, range_y=[-8850, 60940])
     return fig_scatter
@@ -245,11 +253,11 @@ def create_fig_map(año):
         geojson=counties,
         locations="fips",
         color=str(año),
-        color_continuous_scale="Plotly3",
-        range_color=(0, 70000),
+        color_continuous_scale="GnBu",
+        range_color=(0, 61000),
         mapbox_style="carto-positron",
-        zoom=6,
-        center={"lat": 9.9281, "lon": -84.0907},
+        zoom=6.5,
+        center={"lat": 9.9, "lon": -84.0907},
         opacity=0.7,
         labels={"unemp": "unemployment rate"},
     )
@@ -261,68 +269,83 @@ def create_fig_map(año):
     Output('figSquareInter1','figure'),
     Output('figSquareDomestic1','figure'),
     Output('figSquareNetChange1','figure'),
+    Output('Select1NormValue','data'),
     Input('Select1-value','data')
     )
 def create_fig_Squares(Select1):
     global df
-    
-    print(Select1)
-    
-    print("Año seleccionado")
-    print(Select1['Año'])
+
     dfAño = df[df['Año'] == Select1['Año']]
     dfAñoReguion = dfAño[dfAño['Region'] == Select1['Region']]
     dfAñoReguionMig = dfAñoReguion[dfAñoReguion['Tipo'] == 'Migracioninterna']
-    print(dfAñoReguionMig)
-    migrates= dfAñoReguionMig['Cantidad_de_presonas'].values[0]
+
+    migrates= dfAñoReguionMig['Cantidad de presonas'].values[0]
     dfAñoReguionInt = dfAñoReguion[dfAñoReguion['Tipo'] == 'International']
-    print(dfAñoReguionInt)
-    extrangeros= dfAñoReguionInt['Cantidad_de_presonas'].values[0]
+    extrangeros= dfAñoReguionInt['Cantidad de presonas'].values[0]
     dfAñoReguionNat = dfAñoReguion[dfAñoReguion['Tipo'] == 'Natural']
-    print(dfAñoReguionNat)
-    crecimiento_natural = dfAñoReguionNat['Cantidad_de_presonas'].values[0]
+    crecimiento_natural = dfAñoReguionNat['Cantidad de presonas'].values[0]
     dfAñoReguionNetC = dfAñoReguion[dfAñoReguion['Tipo'] == 'NetChange']
-    print(dfAñoReguionNetC)
-    cambioGeneral= dfAñoReguionNetC['Cantidad_de_presonas'].values[0]
+    cambioGeneral= dfAñoReguionNetC['Cantidad de presonas'].values[0]
     migratesNorm = migrates*20/61000
     extrangerosNorm = extrangeros*20/61000
     crecimiento_naturalNorm = crecimiento_natural*20/61000
     cambioGeneralNorm = cambioGeneral*20/61000
-    figMigrates= square(migratesNorm)
-    figExtrangeros= square(extrangerosNorm)
-    figCrecimientoNormal = square(crecimiento_naturalNorm)
-    figCambioGeneral=square(cambioGeneralNorm)
-    return figCrecimientoNormal,figExtrangeros,figMigrates,figCambioGeneral
+    figMigrates= square(migratesNorm,'MediumPurple')
+    figExtrangeros= square(extrangerosNorm,'OrangeRed')
+    figCrecimientoNormal = square(crecimiento_naturalNorm, 'LightSalmon')
+    figCambioGeneral=square(cambioGeneralNorm,'DeepSkyBlue')
+    
+    values = {'migratesNorm':migratesNorm , 'extrangerosNorm':extrangerosNorm,'crecimiento_naturalNorm':crecimiento_naturalNorm,'cambioGeneralNorm':cambioGeneralNorm}
+    
+    return figCrecimientoNormal,figExtrangeros,figMigrates,figCambioGeneral,values
 
 @app.callback(
     Output('figSquareNatural2','figure'),
     Output('figSquareInter2','figure'),
     Output('figSquareDomestic2','figure'),
     Output('figSquareNetChange2','figure'),
+    Output('Select2NormValue','data'),
     Input('Select2-value','data')
     )
-def create_fig_Squares(Select2):
+def create_fig_Squares2(Select2):
     global df
-    print(Select2)
-    print(Select2['Año'])
+
     dfAño = df[df['Año'] == Select2['Año']]
     dfAñoReguion = dfAño[dfAño['Region'] == Select2['Region']]
     dfAñoReguionMig = dfAñoReguion[dfAñoReguion['Tipo'] == 'Migracioninterna']
-    migrates= dfAñoReguionMig['Cantidad_de_presonas'].values[0]
+    migrates= dfAñoReguionMig['Cantidad de presonas'].values[0]
     dfAñoReguionInt = dfAñoReguion[dfAñoReguion['Tipo'] == 'International']
-    extrangeros= dfAñoReguionInt['Cantidad_de_presonas'].values[0]
+    extrangeros= dfAñoReguionInt['Cantidad de presonas'].values[0]
     dfAñoReguionNat = dfAñoReguion[dfAñoReguion['Tipo'] == 'Natural']
-    crecimiento_natural = dfAñoReguionNat['Cantidad_de_presonas'].values[0]
+    crecimiento_natural = dfAñoReguionNat['Cantidad de presonas'].values[0]
     dfAñoReguionNetC = dfAñoReguion[dfAñoReguion['Tipo'] == 'NetChange']
-    cambioGeneral= dfAñoReguionNetC['Cantidad_de_presonas'].values[0]
+    cambioGeneral= dfAñoReguionNetC['Cantidad de presonas'].values[0]
     migratesNorm = migrates*20/61000
     extrangerosNorm = extrangeros*20/61000
     crecimiento_naturalNorm = crecimiento_natural*20/61000
     cambioGeneralNorm = cambioGeneral*20/61000
-    figMigrates= square(migratesNorm)
-    figExtrangeros= square(extrangerosNorm)
-    figCrecimientoNormal = square(crecimiento_naturalNorm)
-    figCambioGeneral=square(cambioGeneralNorm)
+    figMigrates= square(migratesNorm,'MediumPurple')
+    figExtrangeros= square(extrangerosNorm,'OrangeRed')
+    figCrecimientoNormal = square(crecimiento_naturalNorm, 'LightSalmon')
+    figCambioGeneral=square(cambioGeneralNorm,'DeepSkyBlue')
+    values = {'migratesNorm':migratesNorm , 'extrangerosNorm':extrangerosNorm,'crecimiento_naturalNorm':crecimiento_naturalNorm,'cambioGeneralNorm':cambioGeneralNorm}
+    return figCrecimientoNormal,figExtrangeros,figMigrates,figCambioGeneral,values
+
+
+
+@app.callback(
+    Output('figSquareNatural3','figure'),
+    Output('figSquareInter3','figure'),
+    Output('figSquareDomestic3','figure'),
+    Output('figSquareNetChange3','figure'),
+    Input('Select1NormValue','data'),
+    Input('Select2NormValue','data')
+    )
+def create_fig_Squares2(setValue1,setValue2):
+    figMigrates= square(setValue1['migratesNorm']-setValue2['migratesNorm'],'MediumPurple')
+    figExtrangeros= square(setValue1['extrangerosNorm']-setValue2['extrangerosNorm'],'OrangeRed')
+    figCrecimientoNormal = square(setValue1['crecimiento_naturalNorm']-setValue2['crecimiento_naturalNorm'], 'LightSalmon')
+    figCambioGeneral=square(setValue1['cambioGeneralNorm']-setValue2['cambioGeneralNorm'],'DeepSkyBlue')
     return figCrecimientoNormal,figExtrangeros,figMigrates,figCambioGeneral
 
 # Run the App
