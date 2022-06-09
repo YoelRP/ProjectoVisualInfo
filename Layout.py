@@ -350,4 +350,4 @@ def create_fig_Squares2(setValue1,setValue2):
 
 # Run the App
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    app.run_server(debug=False)
